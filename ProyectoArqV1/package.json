@@ -1,0 +1,9 @@
+{
+  "name": "proyecto-arq-v1",
+  "version": "0.0.0",
+  "description": "ProyectoArqV1",
+  "main": "server.js",
+  "author": {
+    "name": ""
+  }
+}
