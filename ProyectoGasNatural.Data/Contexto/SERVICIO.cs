@@ -18,7 +18,6 @@ namespace ProyectoGasNatural.Data.Contexto
         public DateTime FechaCreacion { get; set; }
         public DateTime FechaModificacion { get; set; }
         public string Direccion { get; set; }
-        public DateTime FechaAsignacion { get; set; }
-
+        public DateTime FechaAsignacion { get; set; }        
     }
 }
