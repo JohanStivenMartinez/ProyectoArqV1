@@ -13,7 +13,7 @@ namespace ProyectoGasNatural.Data.Contexto
         public BadImageFormatException FirmaUsuario { get; set; }
         public int IdServicio { get; set; }
         public DateTime FechaCreacion { get; set; }
-        public DateTime FechaImpresion { get; set; }
+        public DateTime FechaImpresion { get; set; } //sbduowbnrfwqmpfbvqou
 
     }
 }
