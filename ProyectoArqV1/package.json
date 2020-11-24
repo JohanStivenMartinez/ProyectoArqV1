@@ -1,9 +1,23 @@
 {
   "name": "proyecto-arq-v1",
-  "version": "0.0.0",
-  "description": "ProyectoArqV1",
-  "main": "server.js",
-  "author": {
-    "name": ""
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+   
+    "dev": "nodemon index"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+
+  "dependencies": {
+    "ejs": "^3.1.5",
+    "express": "^4.17.1",
+    "morgan": "^1.10.0",
+    "mssql": "^6.2.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6"
   }
 }
