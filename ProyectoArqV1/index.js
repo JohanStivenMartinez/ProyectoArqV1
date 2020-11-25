@@ -17,7 +17,7 @@ app.use(express.json());
 app.use('/api', require('../ProyectoArqV1/Views/Js/index'));
 app.use('/api/agregarUsuario', require('../ProyectoArqV1/Views/Js/agregarUsuario'));
 app.use('/api/iniciosesion', require('../ProyectoArqV1/Views/Js/iniciosesion'));
-
+app.use('/api/sumbit', require('../ProyectoArqV1/Views/Js/iniciosesion'));
 
 app.listen(app.get('port'), () => {
     console.log('Server on port', app.get('port'));
