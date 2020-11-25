@@ -10,6 +10,6 @@ namespace ProyectoGasNatural.Data.Contexto
         public string Causa { get; set; }
         public DateTime FechaCreacion { get; set; }
         public int IdPersonaCreacion { get; set; }
-        public string Observaciones { get; set; }
+        public string Observaciones { get; set; }//Merge
     }
 }
