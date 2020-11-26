@@ -17,7 +17,10 @@ app.use(express.json());
 app.use('/api', require('../ProyectoArqV1/Views/Js/index'));
 app.use('/api/agregarUsuario', require('../ProyectoArqV1/Views/Js/agregarUsuario'));
 app.use('/api/iniciosesion', require('../ProyectoArqV1/Views/Js/iniciosesion'));
-
+app.use('/api/indexUsuario', require('../ProyectoArqV1/Views/Js/indexUsuario'));
+app.use('/api/crearServicio', require('../ProyectoArqV1/Views/Js/crearServicio'));
+app.use('/api/buscarServicio', require('../ProyectoArqV1/Views/Js/buscarServicio'));
+app.use('/api/cancelarServicio', require('../ProyectoArqV1/Views/Js/cancelarServicio'));
 
 app.listen(app.get('port'), () => {
     console.log('Server on port', app.get('port'));
