@@ -8,6 +8,14 @@
     <!--Bootstrap 4.5-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
           integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <style type="text/css">
+
+        body {
+            background: #83a4d4; /* fallback for old browsers */
+            background: -webkit-linear-gradient(to right, #b6fbff, #83a4d4); /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to right, #b6fbff, #83a4d4); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        }
+    </style>
 
 </head>
 
@@ -40,37 +48,39 @@
     </nav>
 
     <!--Seleccion de tipo de servicio-->
+    
     <div class="list-group">
-        <a href="#" class="list-group-item list-group-item-action active">
+        <!--Crear Servicio-->
+        <a href="/api/crearServicio" class="list-group-item list-group-item-action active">
             <div class="d-flex w-50 justify-content-between">
                 <h5 class="mb-1">Crear Servicio</h5>
-               
+
             </div>
             <p class="mb-1">Aquí podrás agendar tu próxima visita de Gas Natural.</p>
             <small>Ten en cuenta los datos solicitados.</small>
         </a>
-        <a href="#" class="list-group-item list-group-item-action">
+        <!--Buscar Servicio-->
+        <a href="/api/buscarServicio" class="list-group-item list-group-item-action">
             <div class="d-flex w-50 justify-content-between">
                 <h5 class="mb-1">Buscar Servicio</h5>
-                
+
             </div>
             <p class="mb-1">Busca los servicios que tengamos pendientes.</p>
             <small class="text-muted">Solo necesitas el ID</small>
         </a>
-        <a href="#" class="list-group-item list-group-item-action">
+        <!--Cancelar Servicio-->
+        <a href="/api/cancelarServicio" class="list-group-item list-group-item-action">
             <div class="d-flex w-50 justify-content-between">
                 <h5 class="mb-1">Cancelar Servicio</h5>
-               
+
             </div>
             <p class="mb-1">Podrás cancelar los servicios que quieras en cualquier momento del día.</p>
             <small class="text-muted">Cuentas con 3 días para cancelar los servicios.</small>
+            <div class="form-group">
+                <a class="btn btn-primary btn-block" href="/api">Cerrar sesion</a>
+            </div>
         </a>
     </div>
-
-    <script src="ProyectoArqV1/views/js/crearServicio.js"></script>
-    <script src="ProyectoArqV1/views/js/buscarServicio.js"></script>
-    <script src="ProyectoArqV1/views/js/cancelarServicio.js"></script>
-    <script src="ProyectoArqV1/views/js/modificarServicio.js"></script>
 </body>
 
 </html>
