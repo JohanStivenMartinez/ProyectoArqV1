@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="4e088747c1264d3f8780716f477d6e17" Name="Diagram1">
+        <EntityTypeShape EntityType="GasNaturalModel.CAUSAS" Width="1.5" PointX="3" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="GasNaturalModel.COMPONENTES" Width="1.5" PointX="3" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="GasNaturalModel.COMPROBANTE" Width="1.5" PointX="7.5" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GasNaturalModel.ETAPAS" Width="1.5" PointX="3" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="GasNaturalModel.FALLOS" Width="1.5" PointX="3" PointY="13.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="GasNaturalModel.MONITOREO" Width="1.5" PointX="7.5" PointY="10.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="GasNaturalModel.PERSONA" Width="1.5" PointX="0.75" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="GasNaturalModel.PLANEACION" Width="1.5" PointX="10.5" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="GasNaturalModel.RECIBO" Width="1.5" PointX="7.5" PointY="17.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="GasNaturalModel.RECORRIDO" Width="1.5" PointX="9.75" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="GasNaturalModel.SERVICIOS" Width="1.5" PointX="5.25" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GasNaturalModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="GasNaturalModel.FK_CAUSAS_PERSONA" ManuallyRouted="false" />
+        <AssociationConnector Association="GasNaturalModel.FK_SERVICIOS_CAUSAS" ManuallyRouted="false" />
+        <AssociationConnector Association="GasNaturalModel.FK_COMPONENTES_PERSONA" ManuallyRouted="false" />
+        <AssociationConnector Association="GasNaturalModel.FK_SERVICIOS_COMPONENTES" ManuallyRouted="false" />
+        <AssociationConnector Association="GasNaturalModel.FK_COMPROBANTE_SERVICIOS" ManuallyRouted="false" />
+        <AssociationConnector Association="GasNaturalModel.FK_PLANEACION_ETAPAS" ManuallyRouted="false" />
+        <AssociationConnector Association="GasNaturalModel.FK_SERVICIOS_ETAPAS" ManuallyRouted="false" />
+        <AssociationConnector Association="GasNaturalModel.FK_FALLOS_PERSONA" ManuallyRouted="false" />
+        <AssociationConnector Association="GasNaturalModel.FK_SERVICIOS_FALLOS" ManuallyRouted="false" />
+        <AssociationConnector Association="GasNaturalModel.FK_MONITOREO_SERVICIOS" ManuallyRouted="false" />
+        <AssociationConnector Association="GasNaturalModel.FK_RECORRIDO_MONITOREO" ManuallyRouted="false" />
+        <AssociationConnector Association="GasNaturalModel.FK_PLANEACION_PERSONA" ManuallyRouted="false" />
+        <AssociationConnector Association="GasNaturalModel.FK_PLANEACION_PERSONA1" ManuallyRouted="false" />
+        <AssociationConnector Association="GasNaturalModel.FK_SERVICIOS_PERSONA" ManuallyRouted="false" />
+        <AssociationConnector Association="GasNaturalModel.FK_SERVICIOS_PERSONA1" ManuallyRouted="false" />
+        <AssociationConnector Association="GasNaturalModel.FK_SERVICIOS_PERSONA2" ManuallyRouted="false" />
+        <AssociationConnector Association="GasNaturalModel.FK_PLANEACION_SERVICIOS" ManuallyRouted="false" />
+        <AssociationConnector Association="GasNaturalModel.FK_RECIBO_SERVICIOS" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

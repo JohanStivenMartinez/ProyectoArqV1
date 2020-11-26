@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProyectoGasNatural.Bussines
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProyectoGasNatural.Data", "ProyectoGasNatural.Data\ProyectoGasNatural.Data.csproj", "{9EBA9877-40AA-4373-8E18-8D951C20B9DE}"
 EndProject
-Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "GasNatural.Servicios", "GasNatural.Servicios\GasNatural.Servicios.vbproj", "{20EEE20E-2EA5-4288-A394-111BE8A09F66}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProyectoGasNatural.Service", "ProyectoGasNatural.Service\ProyectoGasNatural.Service.csproj", "{F84FE594-84C1-436A-8176-0507F19B7561}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +29,10 @@ Global
 		{9EBA9877-40AA-4373-8E18-8D951C20B9DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9EBA9877-40AA-4373-8E18-8D951C20B9DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9EBA9877-40AA-4373-8E18-8D951C20B9DE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{20EEE20E-2EA5-4288-A394-111BE8A09F66}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{20EEE20E-2EA5-4288-A394-111BE8A09F66}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{20EEE20E-2EA5-4288-A394-111BE8A09F66}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{20EEE20E-2EA5-4288-A394-111BE8A09F66}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F84FE594-84C1-436A-8176-0507F19B7561}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F84FE594-84C1-436A-8176-0507F19B7561}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F84FE594-84C1-436A-8176-0507F19B7561}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F84FE594-84C1-436A-8176-0507F19B7561}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
