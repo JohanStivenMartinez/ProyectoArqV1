@@ -5,11 +5,11 @@ VisualStudioVersion = 16.0.30711.63
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "ProyectoGasNatural", "ProyectoArqV1\ProyectoGasNatural.njsproj", "{9AC90415-8FA5-48A4-B0BF-AFE85DEC6E95}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProyectoGasNatural.Bussiness", "ProyectoGasNatural.Bussiness\ProyectoGasNatural.Bussiness.csproj", "{5FFEE622-C3D7-4D9F-BC03-5B8EC439EE7E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProyectoGasNatural.Bussiness", "ProyectoGasNatural.Bussiness\ProyectoGasNatural.Bussiness.csproj", "{5FFEE622-C3D7-4D9F-BC03-5B8EC439EE7E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProyectoGasNatural.Data", "ProyectoGasNatural.Data\ProyectoGasNatural.Data.csproj", "{9EBA9877-40AA-4373-8E18-8D951C20B9DE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProyectoGasNatural.Data", "ProyectoGasNatural.Data\ProyectoGasNatural.Data.csproj", "{9EBA9877-40AA-4373-8E18-8D951C20B9DE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProyectoGasNatural.Services", "ProyectoGasNatural.Services\ProyectoGasNatural.Services.csproj", "{BC98734D-CD20-45E5-B8D1-031C2BF31520}"
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "GasNatural.Servicios", "GasNatural.Servicios\GasNatural.Servicios.vbproj", "{20EEE20E-2EA5-4288-A394-111BE8A09F66}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +29,10 @@ Global
 		{9EBA9877-40AA-4373-8E18-8D951C20B9DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9EBA9877-40AA-4373-8E18-8D951C20B9DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9EBA9877-40AA-4373-8E18-8D951C20B9DE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BC98734D-CD20-45E5-B8D1-031C2BF31520}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BC98734D-CD20-45E5-B8D1-031C2BF31520}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BC98734D-CD20-45E5-B8D1-031C2BF31520}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BC98734D-CD20-45E5-B8D1-031C2BF31520}.Release|Any CPU.Build.0 = Release|Any CPU
+		{20EEE20E-2EA5-4288-A394-111BE8A09F66}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20EEE20E-2EA5-4288-A394-111BE8A09F66}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20EEE20E-2EA5-4288-A394-111BE8A09F66}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20EEE20E-2EA5-4288-A394-111BE8A09F66}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

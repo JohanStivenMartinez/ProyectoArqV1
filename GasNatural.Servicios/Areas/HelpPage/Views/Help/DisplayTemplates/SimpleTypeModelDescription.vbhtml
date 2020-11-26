@@ -1,0 +1,3 @@
+@Imports GasNatural.Servicios.Areas.HelpPage.ModelDescriptions
+@ModelType SimpleTypeModelDescription
+@Model.Documentation

@@ -1,0 +1,1111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="GasNaturalModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CAUSAS">
+          <Key>
+            <PropertyRef Name="IdCausas" />
+          </Key>
+          <Property Name="IdCausas" Type="int" Nullable="false" />
+          <Property Name="Causa" Type="nchar" MaxLength="300" Nullable="false" />
+          <Property Name="FechaCreacion" Type="datetime" Nullable="false" />
+          <Property Name="IdPersonaCreacion" Type="int" Nullable="false" />
+          <Property Name="Observaciones" Type="nchar" MaxLength="300" Nullable="false" />
+        </EntityType>
+        <EntityType Name="COMPONENTES">
+          <Key>
+            <PropertyRef Name="IdComponente" />
+          </Key>
+          <Property Name="IdComponente" Type="int" Nullable="false" />
+          <Property Name="FechaComponente" Type="datetime" Nullable="false" />
+          <Property Name="FechaCreacion" Type="datetime" Nullable="false" />
+          <Property Name="IdPersonaCreaciones" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="COMPROBANTE">
+          <Key>
+            <PropertyRef Name="IdComprobante" />
+          </Key>
+          <Property Name="IdComprobante" Type="int" Nullable="false" />
+          <Property Name="Monto" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Iva" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="FirmaTecnico" Type="image" Nullable="false" />
+          <Property Name="FirmaUsuario" Type="image" Nullable="false" />
+          <Property Name="IdServicio" Type="int" Nullable="false" />
+          <Property Name="FechaCreacion" Type="datetime" Nullable="false" />
+          <Property Name="FechaImpresion" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ETAPAS">
+          <Key>
+            <PropertyRef Name="IdEtapa" />
+          </Key>
+          <Property Name="IdEtapa" Type="int" Nullable="false" />
+          <Property Name="Etapa" Type="nchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FALLOS">
+          <Key>
+            <PropertyRef Name="IdFallo" />
+          </Key>
+          <Property Name="IdFallo" Type="int" Nullable="false" />
+          <Property Name="Fallo" Type="nchar" MaxLength="30" Nullable="false" />
+          <Property Name="FechaCreacion" Type="datetime" Nullable="false" />
+          <Property Name="IdPersonaCreaciones" Type="int" Nullable="false" />
+          <Property Name="Observaciones" Type="nchar" MaxLength="300" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MONITOREO">
+          <Key>
+            <PropertyRef Name="IdMonitoreo" />
+          </Key>
+          <Property Name="IdMonitoreo" Type="int" Nullable="false" />
+          <Property Name="IdServicio" Type="int" Nullable="false" />
+          <Property Name="FechaInicio" Type="datetime" Nullable="false" />
+          <Property Name="FechaFin" Type="datetime" Nullable="false" />
+          <Property Name="MetrosRecorridos" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PERSONA">
+          <Key>
+            <PropertyRef Name="IdPersona" />
+          </Key>
+          <Property Name="IdPersona" Type="int" Nullable="false" />
+          <Property Name="Nombres" Type="nchar" MaxLength="20" Nullable="false" />
+          <Property Name="Apellidos" Type="nchar" MaxLength="20" Nullable="false" />
+          <Property Name="FechaNacimiento" Type="datetime" Nullable="false" />
+          <Property Name="Telefono" Type="int" Nullable="false" />
+          <Property Name="Direccion" Type="nchar" MaxLength="70" Nullable="false" />
+          <Property Name="Email" Type="nchar" MaxLength="100" Nullable="false" />
+          <Property Name="Ciudad" Type="nchar" MaxLength="100" Nullable="false" />
+          <Property Name="Login" Type="nchar" MaxLength="15" Nullable="false" />
+          <Property Name="Contraseña" Type="nchar" MaxLength="15" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PLANEACION">
+          <Key>
+            <PropertyRef Name="IdPlaneacion" />
+          </Key>
+          <Property Name="IdPlaneacion" Type="int" Nullable="false" />
+          <Property Name="IdServicio" Type="int" Nullable="false" />
+          <Property Name="FechaCreacion" Type="datetime" Nullable="false" />
+          <Property Name="IdPersonaCreacion" Type="int" Nullable="false" />
+          <Property Name="IdPersonaModificacion" Type="int" Nullable="false" />
+          <Property Name="IdEtapa" Type="int" Nullable="false" />
+          <Property Name="FechaAsignacion" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RECIBO">
+          <Key>
+            <PropertyRef Name="IdRecibo" />
+          </Key>
+          <Property Name="IdRecibo" Type="int" Nullable="false" />
+          <Property Name="Monto" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Iva" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="FirmaTecnico" Type="image" Nullable="false" />
+          <Property Name="FirmaUsuario" Type="image" Nullable="false" />
+          <Property Name="IdServicio" Type="int" Nullable="false" />
+          <Property Name="FechaCreacion" Type="datetime" Nullable="false" />
+          <Property Name="FechaImpresion" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RECORRIDO">
+          <Key>
+            <PropertyRef Name="IdRecorrido" />
+          </Key>
+          <Property Name="IdRecorrido" Type="int" Nullable="false" />
+          <Property Name="IdMonitoreo" Type="int" Nullable="false" />
+          <Property Name="FechaRecorrido" Type="datetime" Nullable="false" />
+          <Property Name="Longitud" Type="int" Nullable="false" />
+          <Property Name="Latitud" Type="int" Nullable="false" />
+          <Property Name="Velocidad" Type="int" Nullable="false" />
+          <Property Name="DistanciaRecorrida" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SERVICIOS">
+          <Key>
+            <PropertyRef Name="IdServicio" />
+          </Key>
+          <Property Name="IdServicio" Type="int" Nullable="false" />
+          <Property Name="IdPersonaTecnico" Type="int" Nullable="false" />
+          <Property Name="IdPersonaCreacion" Type="int" Nullable="false" />
+          <Property Name="IdPersonaCliente" Type="int" Nullable="false" />
+          <Property Name="IdEtapa" Type="int" Nullable="false" />
+          <Property Name="Observacion" Type="nchar" MaxLength="300" />
+          <Property Name="IdComponente" Type="int" Nullable="false" />
+          <Property Name="IdFallo" Type="int" Nullable="false" />
+          <Property Name="IdCausa" Type="int" Nullable="false" />
+          <Property Name="FechaCreacion" Type="datetime" Nullable="false" />
+          <Property Name="FechaModificacion" Type="date" Nullable="false" />
+          <Property Name="Direccion" Type="nchar" MaxLength="70" Nullable="false" />
+          <Property Name="FechaAsignacion" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <Association Name="FK_CAUSAS_PERSONA">
+          <End Role="PERSONA" Type="Self.PERSONA" Multiplicity="1" />
+          <End Role="CAUSAS" Type="Self.CAUSAS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PERSONA">
+              <PropertyRef Name="IdPersona" />
+            </Principal>
+            <Dependent Role="CAUSAS">
+              <PropertyRef Name="IdPersonaCreacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_COMPONENTES_PERSONA">
+          <End Role="PERSONA" Type="Self.PERSONA" Multiplicity="1" />
+          <End Role="COMPONENTES" Type="Self.COMPONENTES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PERSONA">
+              <PropertyRef Name="IdPersona" />
+            </Principal>
+            <Dependent Role="COMPONENTES">
+              <PropertyRef Name="IdPersonaCreaciones" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_COMPROBANTE_SERVICIOS">
+          <End Role="SERVICIOS" Type="Self.SERVICIOS" Multiplicity="1" />
+          <End Role="COMPROBANTE" Type="Self.COMPROBANTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SERVICIOS">
+              <PropertyRef Name="IdServicio" />
+            </Principal>
+            <Dependent Role="COMPROBANTE">
+              <PropertyRef Name="IdServicio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FALLOS_PERSONA">
+          <End Role="PERSONA" Type="Self.PERSONA" Multiplicity="1" />
+          <End Role="FALLOS" Type="Self.FALLOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PERSONA">
+              <PropertyRef Name="IdPersona" />
+            </Principal>
+            <Dependent Role="FALLOS">
+              <PropertyRef Name="IdPersonaCreaciones" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MONITOREO_SERVICIOS">
+          <End Role="SERVICIOS" Type="Self.SERVICIOS" Multiplicity="1" />
+          <End Role="MONITOREO" Type="Self.MONITOREO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SERVICIOS">
+              <PropertyRef Name="IdServicio" />
+            </Principal>
+            <Dependent Role="MONITOREO">
+              <PropertyRef Name="IdServicio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PLANEACION_ETAPAS">
+          <End Role="ETAPAS" Type="Self.ETAPAS" Multiplicity="1" />
+          <End Role="PLANEACION" Type="Self.PLANEACION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ETAPAS">
+              <PropertyRef Name="IdEtapa" />
+            </Principal>
+            <Dependent Role="PLANEACION">
+              <PropertyRef Name="IdEtapa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PLANEACION_PERSONA">
+          <End Role="PERSONA" Type="Self.PERSONA" Multiplicity="1" />
+          <End Role="PLANEACION" Type="Self.PLANEACION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PERSONA">
+              <PropertyRef Name="IdPersona" />
+            </Principal>
+            <Dependent Role="PLANEACION">
+              <PropertyRef Name="IdPersonaCreacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PLANEACION_PERSONA1">
+          <End Role="PERSONA" Type="Self.PERSONA" Multiplicity="1" />
+          <End Role="PLANEACION" Type="Self.PLANEACION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PERSONA">
+              <PropertyRef Name="IdPersona" />
+            </Principal>
+            <Dependent Role="PLANEACION">
+              <PropertyRef Name="IdPersonaModificacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PLANEACION_SERVICIOS">
+          <End Role="SERVICIOS" Type="Self.SERVICIOS" Multiplicity="1" />
+          <End Role="PLANEACION" Type="Self.PLANEACION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SERVICIOS">
+              <PropertyRef Name="IdServicio" />
+            </Principal>
+            <Dependent Role="PLANEACION">
+              <PropertyRef Name="IdServicio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RECIBO_SERVICIOS">
+          <End Role="SERVICIOS" Type="Self.SERVICIOS" Multiplicity="1" />
+          <End Role="RECIBO" Type="Self.RECIBO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SERVICIOS">
+              <PropertyRef Name="IdServicio" />
+            </Principal>
+            <Dependent Role="RECIBO">
+              <PropertyRef Name="IdServicio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RECORRIDO_MONITOREO">
+          <End Role="MONITOREO" Type="Self.MONITOREO" Multiplicity="1" />
+          <End Role="RECORRIDO" Type="Self.RECORRIDO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MONITOREO">
+              <PropertyRef Name="IdMonitoreo" />
+            </Principal>
+            <Dependent Role="RECORRIDO">
+              <PropertyRef Name="IdMonitoreo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SERVICIOS_CAUSAS">
+          <End Role="CAUSAS" Type="Self.CAUSAS" Multiplicity="1" />
+          <End Role="SERVICIOS" Type="Self.SERVICIOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CAUSAS">
+              <PropertyRef Name="IdCausas" />
+            </Principal>
+            <Dependent Role="SERVICIOS">
+              <PropertyRef Name="IdCausa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SERVICIOS_COMPONENTES">
+          <End Role="COMPONENTES" Type="Self.COMPONENTES" Multiplicity="1" />
+          <End Role="SERVICIOS" Type="Self.SERVICIOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="COMPONENTES">
+              <PropertyRef Name="IdComponente" />
+            </Principal>
+            <Dependent Role="SERVICIOS">
+              <PropertyRef Name="IdComponente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SERVICIOS_ETAPAS">
+          <End Role="ETAPAS" Type="Self.ETAPAS" Multiplicity="1" />
+          <End Role="SERVICIOS" Type="Self.SERVICIOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ETAPAS">
+              <PropertyRef Name="IdEtapa" />
+            </Principal>
+            <Dependent Role="SERVICIOS">
+              <PropertyRef Name="IdEtapa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SERVICIOS_FALLOS">
+          <End Role="FALLOS" Type="Self.FALLOS" Multiplicity="1" />
+          <End Role="SERVICIOS" Type="Self.SERVICIOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FALLOS">
+              <PropertyRef Name="IdFallo" />
+            </Principal>
+            <Dependent Role="SERVICIOS">
+              <PropertyRef Name="IdFallo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SERVICIOS_PERSONA">
+          <End Role="PERSONA" Type="Self.PERSONA" Multiplicity="1" />
+          <End Role="SERVICIOS" Type="Self.SERVICIOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PERSONA">
+              <PropertyRef Name="IdPersona" />
+            </Principal>
+            <Dependent Role="SERVICIOS">
+              <PropertyRef Name="IdPersonaCliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SERVICIOS_PERSONA1">
+          <End Role="PERSONA" Type="Self.PERSONA" Multiplicity="1" />
+          <End Role="SERVICIOS" Type="Self.SERVICIOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PERSONA">
+              <PropertyRef Name="IdPersona" />
+            </Principal>
+            <Dependent Role="SERVICIOS">
+              <PropertyRef Name="IdPersonaCreacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SERVICIOS_PERSONA2">
+          <End Role="PERSONA" Type="Self.PERSONA" Multiplicity="1" />
+          <End Role="SERVICIOS" Type="Self.SERVICIOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PERSONA">
+              <PropertyRef Name="IdPersona" />
+            </Principal>
+            <Dependent Role="SERVICIOS">
+              <PropertyRef Name="IdPersonaTecnico" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="GasNaturalModelStoreContainer">
+          <EntitySet Name="CAUSAS" EntityType="Self.CAUSAS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="COMPONENTES" EntityType="Self.COMPONENTES" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="COMPROBANTE" EntityType="Self.COMPROBANTE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ETAPAS" EntityType="Self.ETAPAS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FALLOS" EntityType="Self.FALLOS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MONITOREO" EntityType="Self.MONITOREO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PERSONA" EntityType="Self.PERSONA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PLANEACION" EntityType="Self.PLANEACION" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RECIBO" EntityType="Self.RECIBO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RECORRIDO" EntityType="Self.RECORRIDO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SERVICIOS" EntityType="Self.SERVICIOS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_CAUSAS_PERSONA" Association="Self.FK_CAUSAS_PERSONA">
+            <End Role="PERSONA" EntitySet="PERSONA" />
+            <End Role="CAUSAS" EntitySet="CAUSAS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_COMPONENTES_PERSONA" Association="Self.FK_COMPONENTES_PERSONA">
+            <End Role="PERSONA" EntitySet="PERSONA" />
+            <End Role="COMPONENTES" EntitySet="COMPONENTES" />
+          </AssociationSet>
+          <AssociationSet Name="FK_COMPROBANTE_SERVICIOS" Association="Self.FK_COMPROBANTE_SERVICIOS">
+            <End Role="SERVICIOS" EntitySet="SERVICIOS" />
+            <End Role="COMPROBANTE" EntitySet="COMPROBANTE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FALLOS_PERSONA" Association="Self.FK_FALLOS_PERSONA">
+            <End Role="PERSONA" EntitySet="PERSONA" />
+            <End Role="FALLOS" EntitySet="FALLOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MONITOREO_SERVICIOS" Association="Self.FK_MONITOREO_SERVICIOS">
+            <End Role="SERVICIOS" EntitySet="SERVICIOS" />
+            <End Role="MONITOREO" EntitySet="MONITOREO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PLANEACION_ETAPAS" Association="Self.FK_PLANEACION_ETAPAS">
+            <End Role="ETAPAS" EntitySet="ETAPAS" />
+            <End Role="PLANEACION" EntitySet="PLANEACION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PLANEACION_PERSONA" Association="Self.FK_PLANEACION_PERSONA">
+            <End Role="PERSONA" EntitySet="PERSONA" />
+            <End Role="PLANEACION" EntitySet="PLANEACION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PLANEACION_PERSONA1" Association="Self.FK_PLANEACION_PERSONA1">
+            <End Role="PERSONA" EntitySet="PERSONA" />
+            <End Role="PLANEACION" EntitySet="PLANEACION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PLANEACION_SERVICIOS" Association="Self.FK_PLANEACION_SERVICIOS">
+            <End Role="SERVICIOS" EntitySet="SERVICIOS" />
+            <End Role="PLANEACION" EntitySet="PLANEACION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RECIBO_SERVICIOS" Association="Self.FK_RECIBO_SERVICIOS">
+            <End Role="SERVICIOS" EntitySet="SERVICIOS" />
+            <End Role="RECIBO" EntitySet="RECIBO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RECORRIDO_MONITOREO" Association="Self.FK_RECORRIDO_MONITOREO">
+            <End Role="MONITOREO" EntitySet="MONITOREO" />
+            <End Role="RECORRIDO" EntitySet="RECORRIDO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SERVICIOS_CAUSAS" Association="Self.FK_SERVICIOS_CAUSAS">
+            <End Role="CAUSAS" EntitySet="CAUSAS" />
+            <End Role="SERVICIOS" EntitySet="SERVICIOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SERVICIOS_COMPONENTES" Association="Self.FK_SERVICIOS_COMPONENTES">
+            <End Role="COMPONENTES" EntitySet="COMPONENTES" />
+            <End Role="SERVICIOS" EntitySet="SERVICIOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SERVICIOS_ETAPAS" Association="Self.FK_SERVICIOS_ETAPAS">
+            <End Role="ETAPAS" EntitySet="ETAPAS" />
+            <End Role="SERVICIOS" EntitySet="SERVICIOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SERVICIOS_FALLOS" Association="Self.FK_SERVICIOS_FALLOS">
+            <End Role="FALLOS" EntitySet="FALLOS" />
+            <End Role="SERVICIOS" EntitySet="SERVICIOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SERVICIOS_PERSONA" Association="Self.FK_SERVICIOS_PERSONA">
+            <End Role="PERSONA" EntitySet="PERSONA" />
+            <End Role="SERVICIOS" EntitySet="SERVICIOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SERVICIOS_PERSONA1" Association="Self.FK_SERVICIOS_PERSONA1">
+            <End Role="PERSONA" EntitySet="PERSONA" />
+            <End Role="SERVICIOS" EntitySet="SERVICIOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SERVICIOS_PERSONA2" Association="Self.FK_SERVICIOS_PERSONA2">
+            <End Role="PERSONA" EntitySet="PERSONA" />
+            <End Role="SERVICIOS" EntitySet="SERVICIOS" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="GasNaturalModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="CAUSAS">
+          <Key>
+            <PropertyRef Name="IdCausas" />
+          </Key>
+          <Property Name="IdCausas" Type="Int32" Nullable="false" />
+          <Property Name="Causa" Type="String" MaxLength="300" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="FechaCreacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IdPersonaCreacion" Type="Int32" Nullable="false" />
+          <Property Name="Observaciones" Type="String" MaxLength="300" FixedLength="true" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="PERSONA" Relationship="Self.FK_CAUSAS_PERSONA" FromRole="CAUSAS" ToRole="PERSONA" />
+          <NavigationProperty Name="SERVICIOS" Relationship="Self.FK_SERVICIOS_CAUSAS" FromRole="CAUSAS" ToRole="SERVICIOS" />
+        </EntityType>
+        <EntityType Name="COMPONENTES">
+          <Key>
+            <PropertyRef Name="IdComponente" />
+          </Key>
+          <Property Name="IdComponente" Type="Int32" Nullable="false" />
+          <Property Name="FechaComponente" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="FechaCreacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IdPersonaCreaciones" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="PERSONA" Relationship="Self.FK_COMPONENTES_PERSONA" FromRole="COMPONENTES" ToRole="PERSONA" />
+          <NavigationProperty Name="SERVICIOS" Relationship="Self.FK_SERVICIOS_COMPONENTES" FromRole="COMPONENTES" ToRole="SERVICIOS" />
+        </EntityType>
+        <EntityType Name="COMPROBANTE">
+          <Key>
+            <PropertyRef Name="IdComprobante" />
+          </Key>
+          <Property Name="IdComprobante" Type="Int32" Nullable="false" />
+          <Property Name="Monto" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Iva" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="FirmaTecnico" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <Property Name="FirmaUsuario" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <Property Name="IdServicio" Type="Int32" Nullable="false" />
+          <Property Name="FechaCreacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="FechaImpresion" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="SERVICIOS" Relationship="Self.FK_COMPROBANTE_SERVICIOS" FromRole="COMPROBANTE" ToRole="SERVICIOS" />
+        </EntityType>
+        <EntityType Name="ETAPAS">
+          <Key>
+            <PropertyRef Name="IdEtapa" />
+          </Key>
+          <Property Name="IdEtapa" Type="Int32" Nullable="false" />
+          <Property Name="Etapa" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="PLANEACION" Relationship="Self.FK_PLANEACION_ETAPAS" FromRole="ETAPAS" ToRole="PLANEACION" />
+          <NavigationProperty Name="SERVICIOS" Relationship="Self.FK_SERVICIOS_ETAPAS" FromRole="ETAPAS" ToRole="SERVICIOS" />
+        </EntityType>
+        <EntityType Name="FALLOS">
+          <Key>
+            <PropertyRef Name="IdFallo" />
+          </Key>
+          <Property Name="IdFallo" Type="Int32" Nullable="false" />
+          <Property Name="Fallo" Type="String" MaxLength="30" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="FechaCreacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IdPersonaCreaciones" Type="Int32" Nullable="false" />
+          <Property Name="Observaciones" Type="String" MaxLength="300" FixedLength="true" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="PERSONA" Relationship="Self.FK_FALLOS_PERSONA" FromRole="FALLOS" ToRole="PERSONA" />
+          <NavigationProperty Name="SERVICIOS" Relationship="Self.FK_SERVICIOS_FALLOS" FromRole="FALLOS" ToRole="SERVICIOS" />
+        </EntityType>
+        <EntityType Name="MONITOREO">
+          <Key>
+            <PropertyRef Name="IdMonitoreo" />
+          </Key>
+          <Property Name="IdMonitoreo" Type="Int32" Nullable="false" />
+          <Property Name="IdServicio" Type="Int32" Nullable="false" />
+          <Property Name="FechaInicio" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="FechaFin" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="MetrosRecorridos" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <NavigationProperty Name="SERVICIOS" Relationship="Self.FK_MONITOREO_SERVICIOS" FromRole="MONITOREO" ToRole="SERVICIOS" />
+          <NavigationProperty Name="RECORRIDO" Relationship="Self.FK_RECORRIDO_MONITOREO" FromRole="MONITOREO" ToRole="RECORRIDO" />
+        </EntityType>
+        <EntityType Name="PERSONA">
+          <Key>
+            <PropertyRef Name="IdPersona" />
+          </Key>
+          <Property Name="IdPersona" Type="Int32" Nullable="false" />
+          <Property Name="Nombres" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Apellidos" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="FechaNacimiento" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Telefono" Type="Int32" Nullable="false" />
+          <Property Name="Direccion" Type="String" MaxLength="70" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Ciudad" Type="String" MaxLength="100" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Login" Type="String" MaxLength="15" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Contraseña" Type="String" MaxLength="15" FixedLength="true" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="CAUSAS" Relationship="Self.FK_CAUSAS_PERSONA" FromRole="PERSONA" ToRole="CAUSAS" />
+          <NavigationProperty Name="COMPONENTES" Relationship="Self.FK_COMPONENTES_PERSONA" FromRole="PERSONA" ToRole="COMPONENTES" />
+          <NavigationProperty Name="FALLOS" Relationship="Self.FK_FALLOS_PERSONA" FromRole="PERSONA" ToRole="FALLOS" />
+          <NavigationProperty Name="PLANEACION" Relationship="Self.FK_PLANEACION_PERSONA" FromRole="PERSONA" ToRole="PLANEACION" />
+          <NavigationProperty Name="PLANEACION1" Relationship="Self.FK_PLANEACION_PERSONA1" FromRole="PERSONA" ToRole="PLANEACION" />
+          <NavigationProperty Name="SERVICIOS" Relationship="Self.FK_SERVICIOS_PERSONA" FromRole="PERSONA" ToRole="SERVICIOS" />
+          <NavigationProperty Name="SERVICIOS1" Relationship="Self.FK_SERVICIOS_PERSONA1" FromRole="PERSONA" ToRole="SERVICIOS" />
+          <NavigationProperty Name="SERVICIOS2" Relationship="Self.FK_SERVICIOS_PERSONA2" FromRole="PERSONA" ToRole="SERVICIOS" />
+        </EntityType>
+        <EntityType Name="PLANEACION">
+          <Key>
+            <PropertyRef Name="IdPlaneacion" />
+          </Key>
+          <Property Name="IdPlaneacion" Type="Int32" Nullable="false" />
+          <Property Name="IdServicio" Type="Int32" Nullable="false" />
+          <Property Name="FechaCreacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IdPersonaCreacion" Type="Int32" Nullable="false" />
+          <Property Name="IdPersonaModificacion" Type="Int32" Nullable="false" />
+          <Property Name="IdEtapa" Type="Int32" Nullable="false" />
+          <Property Name="FechaAsignacion" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="ETAPAS" Relationship="Self.FK_PLANEACION_ETAPAS" FromRole="PLANEACION" ToRole="ETAPAS" />
+          <NavigationProperty Name="PERSONA" Relationship="Self.FK_PLANEACION_PERSONA" FromRole="PLANEACION" ToRole="PERSONA" />
+          <NavigationProperty Name="PERSONA1" Relationship="Self.FK_PLANEACION_PERSONA1" FromRole="PLANEACION" ToRole="PERSONA" />
+          <NavigationProperty Name="SERVICIOS" Relationship="Self.FK_PLANEACION_SERVICIOS" FromRole="PLANEACION" ToRole="SERVICIOS" />
+        </EntityType>
+        <EntityType Name="RECIBO">
+          <Key>
+            <PropertyRef Name="IdRecibo" />
+          </Key>
+          <Property Name="IdRecibo" Type="Int32" Nullable="false" />
+          <Property Name="Monto" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Iva" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="FirmaTecnico" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <Property Name="FirmaUsuario" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <Property Name="IdServicio" Type="Int32" Nullable="false" />
+          <Property Name="FechaCreacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="FechaImpresion" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="SERVICIOS" Relationship="Self.FK_RECIBO_SERVICIOS" FromRole="RECIBO" ToRole="SERVICIOS" />
+        </EntityType>
+        <EntityType Name="RECORRIDO">
+          <Key>
+            <PropertyRef Name="IdRecorrido" />
+          </Key>
+          <Property Name="IdRecorrido" Type="Int32" Nullable="false" />
+          <Property Name="IdMonitoreo" Type="Int32" Nullable="false" />
+          <Property Name="FechaRecorrido" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Longitud" Type="Int32" Nullable="false" />
+          <Property Name="Latitud" Type="Int32" Nullable="false" />
+          <Property Name="Velocidad" Type="Int32" Nullable="false" />
+          <Property Name="DistanciaRecorrida" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <NavigationProperty Name="MONITOREO" Relationship="Self.FK_RECORRIDO_MONITOREO" FromRole="RECORRIDO" ToRole="MONITOREO" />
+        </EntityType>
+        <EntityType Name="SERVICIOS">
+          <Key>
+            <PropertyRef Name="IdServicio" />
+          </Key>
+          <Property Name="IdServicio" Type="Int32" Nullable="false" />
+          <Property Name="IdPersonaTecnico" Type="Int32" Nullable="false" />
+          <Property Name="IdPersonaCreacion" Type="Int32" Nullable="false" />
+          <Property Name="IdPersonaCliente" Type="Int32" Nullable="false" />
+          <Property Name="IdEtapa" Type="Int32" Nullable="false" />
+          <Property Name="Observacion" Type="String" MaxLength="300" FixedLength="true" Unicode="true" />
+          <Property Name="IdComponente" Type="Int32" Nullable="false" />
+          <Property Name="IdFallo" Type="Int32" Nullable="false" />
+          <Property Name="IdCausa" Type="Int32" Nullable="false" />
+          <Property Name="FechaCreacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="FechaModificacion" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Direccion" Type="String" MaxLength="70" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="FechaAsignacion" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="CAUSAS" Relationship="Self.FK_SERVICIOS_CAUSAS" FromRole="SERVICIOS" ToRole="CAUSAS" />
+          <NavigationProperty Name="COMPONENTES" Relationship="Self.FK_SERVICIOS_COMPONENTES" FromRole="SERVICIOS" ToRole="COMPONENTES" />
+          <NavigationProperty Name="COMPROBANTE" Relationship="Self.FK_COMPROBANTE_SERVICIOS" FromRole="SERVICIOS" ToRole="COMPROBANTE" />
+          <NavigationProperty Name="ETAPAS" Relationship="Self.FK_SERVICIOS_ETAPAS" FromRole="SERVICIOS" ToRole="ETAPAS" />
+          <NavigationProperty Name="FALLOS" Relationship="Self.FK_SERVICIOS_FALLOS" FromRole="SERVICIOS" ToRole="FALLOS" />
+          <NavigationProperty Name="MONITOREO" Relationship="Self.FK_MONITOREO_SERVICIOS" FromRole="SERVICIOS" ToRole="MONITOREO" />
+          <NavigationProperty Name="PERSONA" Relationship="Self.FK_SERVICIOS_PERSONA" FromRole="SERVICIOS" ToRole="PERSONA" />
+          <NavigationProperty Name="PERSONA1" Relationship="Self.FK_SERVICIOS_PERSONA1" FromRole="SERVICIOS" ToRole="PERSONA" />
+          <NavigationProperty Name="PERSONA2" Relationship="Self.FK_SERVICIOS_PERSONA2" FromRole="SERVICIOS" ToRole="PERSONA" />
+          <NavigationProperty Name="PLANEACION" Relationship="Self.FK_PLANEACION_SERVICIOS" FromRole="SERVICIOS" ToRole="PLANEACION" />
+          <NavigationProperty Name="RECIBO" Relationship="Self.FK_RECIBO_SERVICIOS" FromRole="SERVICIOS" ToRole="RECIBO" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <Association Name="FK_CAUSAS_PERSONA">
+          <End Role="PERSONA" Type="Self.PERSONA" Multiplicity="1" />
+          <End Role="CAUSAS" Type="Self.CAUSAS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PERSONA">
+              <PropertyRef Name="IdPersona" />
+            </Principal>
+            <Dependent Role="CAUSAS">
+              <PropertyRef Name="IdPersonaCreacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SERVICIOS_CAUSAS">
+          <End Role="CAUSAS" Type="Self.CAUSAS" Multiplicity="1" />
+          <End Role="SERVICIOS" Type="Self.SERVICIOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CAUSAS">
+              <PropertyRef Name="IdCausas" />
+            </Principal>
+            <Dependent Role="SERVICIOS">
+              <PropertyRef Name="IdCausa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_COMPONENTES_PERSONA">
+          <End Role="PERSONA" Type="Self.PERSONA" Multiplicity="1" />
+          <End Role="COMPONENTES" Type="Self.COMPONENTES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PERSONA">
+              <PropertyRef Name="IdPersona" />
+            </Principal>
+            <Dependent Role="COMPONENTES">
+              <PropertyRef Name="IdPersonaCreaciones" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SERVICIOS_COMPONENTES">
+          <End Role="COMPONENTES" Type="Self.COMPONENTES" Multiplicity="1" />
+          <End Role="SERVICIOS" Type="Self.SERVICIOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="COMPONENTES">
+              <PropertyRef Name="IdComponente" />
+            </Principal>
+            <Dependent Role="SERVICIOS">
+              <PropertyRef Name="IdComponente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_COMPROBANTE_SERVICIOS">
+          <End Role="SERVICIOS" Type="Self.SERVICIOS" Multiplicity="1" />
+          <End Role="COMPROBANTE" Type="Self.COMPROBANTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SERVICIOS">
+              <PropertyRef Name="IdServicio" />
+            </Principal>
+            <Dependent Role="COMPROBANTE">
+              <PropertyRef Name="IdServicio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PLANEACION_ETAPAS">
+          <End Role="ETAPAS" Type="Self.ETAPAS" Multiplicity="1" />
+          <End Role="PLANEACION" Type="Self.PLANEACION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ETAPAS">
+              <PropertyRef Name="IdEtapa" />
+            </Principal>
+            <Dependent Role="PLANEACION">
+              <PropertyRef Name="IdEtapa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SERVICIOS_ETAPAS">
+          <End Role="ETAPAS" Type="Self.ETAPAS" Multiplicity="1" />
+          <End Role="SERVICIOS" Type="Self.SERVICIOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ETAPAS">
+              <PropertyRef Name="IdEtapa" />
+            </Principal>
+            <Dependent Role="SERVICIOS">
+              <PropertyRef Name="IdEtapa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FALLOS_PERSONA">
+          <End Role="PERSONA" Type="Self.PERSONA" Multiplicity="1" />
+          <End Role="FALLOS" Type="Self.FALLOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PERSONA">
+              <PropertyRef Name="IdPersona" />
+            </Principal>
+            <Dependent Role="FALLOS">
+              <PropertyRef Name="IdPersonaCreaciones" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SERVICIOS_FALLOS">
+          <End Role="FALLOS" Type="Self.FALLOS" Multiplicity="1" />
+          <End Role="SERVICIOS" Type="Self.SERVICIOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FALLOS">
+              <PropertyRef Name="IdFallo" />
+            </Principal>
+            <Dependent Role="SERVICIOS">
+              <PropertyRef Name="IdFallo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MONITOREO_SERVICIOS">
+          <End Role="SERVICIOS" Type="Self.SERVICIOS" Multiplicity="1" />
+          <End Role="MONITOREO" Type="Self.MONITOREO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SERVICIOS">
+              <PropertyRef Name="IdServicio" />
+            </Principal>
+            <Dependent Role="MONITOREO">
+              <PropertyRef Name="IdServicio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RECORRIDO_MONITOREO">
+          <End Role="MONITOREO" Type="Self.MONITOREO" Multiplicity="1" />
+          <End Role="RECORRIDO" Type="Self.RECORRIDO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MONITOREO">
+              <PropertyRef Name="IdMonitoreo" />
+            </Principal>
+            <Dependent Role="RECORRIDO">
+              <PropertyRef Name="IdMonitoreo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PLANEACION_PERSONA">
+          <End Role="PERSONA" Type="Self.PERSONA" Multiplicity="1" />
+          <End Role="PLANEACION" Type="Self.PLANEACION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PERSONA">
+              <PropertyRef Name="IdPersona" />
+            </Principal>
+            <Dependent Role="PLANEACION">
+              <PropertyRef Name="IdPersonaCreacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PLANEACION_PERSONA1">
+          <End Role="PERSONA" Type="Self.PERSONA" Multiplicity="1" />
+          <End Role="PLANEACION" Type="Self.PLANEACION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PERSONA">
+              <PropertyRef Name="IdPersona" />
+            </Principal>
+            <Dependent Role="PLANEACION">
+              <PropertyRef Name="IdPersonaModificacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SERVICIOS_PERSONA">
+          <End Role="PERSONA" Type="Self.PERSONA" Multiplicity="1" />
+          <End Role="SERVICIOS" Type="Self.SERVICIOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PERSONA">
+              <PropertyRef Name="IdPersona" />
+            </Principal>
+            <Dependent Role="SERVICIOS">
+              <PropertyRef Name="IdPersonaCliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SERVICIOS_PERSONA1">
+          <End Role="PERSONA" Type="Self.PERSONA" Multiplicity="1" />
+          <End Role="SERVICIOS" Type="Self.SERVICIOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PERSONA">
+              <PropertyRef Name="IdPersona" />
+            </Principal>
+            <Dependent Role="SERVICIOS">
+              <PropertyRef Name="IdPersonaCreacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SERVICIOS_PERSONA2">
+          <End Role="PERSONA" Type="Self.PERSONA" Multiplicity="1" />
+          <End Role="SERVICIOS" Type="Self.SERVICIOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PERSONA">
+              <PropertyRef Name="IdPersona" />
+            </Principal>
+            <Dependent Role="SERVICIOS">
+              <PropertyRef Name="IdPersonaTecnico" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PLANEACION_SERVICIOS">
+          <End Role="SERVICIOS" Type="Self.SERVICIOS" Multiplicity="1" />
+          <End Role="PLANEACION" Type="Self.PLANEACION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SERVICIOS">
+              <PropertyRef Name="IdServicio" />
+            </Principal>
+            <Dependent Role="PLANEACION">
+              <PropertyRef Name="IdServicio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RECIBO_SERVICIOS">
+          <End Role="SERVICIOS" Type="Self.SERVICIOS" Multiplicity="1" />
+          <End Role="RECIBO" Type="Self.RECIBO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SERVICIOS">
+              <PropertyRef Name="IdServicio" />
+            </Principal>
+            <Dependent Role="RECIBO">
+              <PropertyRef Name="IdServicio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="GasNaturalEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CAUSAS" EntityType="Self.CAUSAS" />
+          <EntitySet Name="COMPONENTES" EntityType="Self.COMPONENTES" />
+          <EntitySet Name="COMPROBANTE" EntityType="Self.COMPROBANTE" />
+          <EntitySet Name="ETAPAS" EntityType="Self.ETAPAS" />
+          <EntitySet Name="FALLOS" EntityType="Self.FALLOS" />
+          <EntitySet Name="MONITOREO" EntityType="Self.MONITOREO" />
+          <EntitySet Name="PERSONA" EntityType="Self.PERSONA" />
+          <EntitySet Name="PLANEACION" EntityType="Self.PLANEACION" />
+          <EntitySet Name="RECIBO" EntityType="Self.RECIBO" />
+          <EntitySet Name="RECORRIDO" EntityType="Self.RECORRIDO" />
+          <EntitySet Name="SERVICIOS" EntityType="Self.SERVICIOS" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <AssociationSet Name="FK_CAUSAS_PERSONA" Association="Self.FK_CAUSAS_PERSONA">
+            <End Role="PERSONA" EntitySet="PERSONA" />
+            <End Role="CAUSAS" EntitySet="CAUSAS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SERVICIOS_CAUSAS" Association="Self.FK_SERVICIOS_CAUSAS">
+            <End Role="CAUSAS" EntitySet="CAUSAS" />
+            <End Role="SERVICIOS" EntitySet="SERVICIOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_COMPONENTES_PERSONA" Association="Self.FK_COMPONENTES_PERSONA">
+            <End Role="PERSONA" EntitySet="PERSONA" />
+            <End Role="COMPONENTES" EntitySet="COMPONENTES" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SERVICIOS_COMPONENTES" Association="Self.FK_SERVICIOS_COMPONENTES">
+            <End Role="COMPONENTES" EntitySet="COMPONENTES" />
+            <End Role="SERVICIOS" EntitySet="SERVICIOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_COMPROBANTE_SERVICIOS" Association="Self.FK_COMPROBANTE_SERVICIOS">
+            <End Role="SERVICIOS" EntitySet="SERVICIOS" />
+            <End Role="COMPROBANTE" EntitySet="COMPROBANTE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PLANEACION_ETAPAS" Association="Self.FK_PLANEACION_ETAPAS">
+            <End Role="ETAPAS" EntitySet="ETAPAS" />
+            <End Role="PLANEACION" EntitySet="PLANEACION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SERVICIOS_ETAPAS" Association="Self.FK_SERVICIOS_ETAPAS">
+            <End Role="ETAPAS" EntitySet="ETAPAS" />
+            <End Role="SERVICIOS" EntitySet="SERVICIOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FALLOS_PERSONA" Association="Self.FK_FALLOS_PERSONA">
+            <End Role="PERSONA" EntitySet="PERSONA" />
+            <End Role="FALLOS" EntitySet="FALLOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SERVICIOS_FALLOS" Association="Self.FK_SERVICIOS_FALLOS">
+            <End Role="FALLOS" EntitySet="FALLOS" />
+            <End Role="SERVICIOS" EntitySet="SERVICIOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MONITOREO_SERVICIOS" Association="Self.FK_MONITOREO_SERVICIOS">
+            <End Role="SERVICIOS" EntitySet="SERVICIOS" />
+            <End Role="MONITOREO" EntitySet="MONITOREO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RECORRIDO_MONITOREO" Association="Self.FK_RECORRIDO_MONITOREO">
+            <End Role="MONITOREO" EntitySet="MONITOREO" />
+            <End Role="RECORRIDO" EntitySet="RECORRIDO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PLANEACION_PERSONA" Association="Self.FK_PLANEACION_PERSONA">
+            <End Role="PERSONA" EntitySet="PERSONA" />
+            <End Role="PLANEACION" EntitySet="PLANEACION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PLANEACION_PERSONA1" Association="Self.FK_PLANEACION_PERSONA1">
+            <End Role="PERSONA" EntitySet="PERSONA" />
+            <End Role="PLANEACION" EntitySet="PLANEACION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SERVICIOS_PERSONA" Association="Self.FK_SERVICIOS_PERSONA">
+            <End Role="PERSONA" EntitySet="PERSONA" />
+            <End Role="SERVICIOS" EntitySet="SERVICIOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SERVICIOS_PERSONA1" Association="Self.FK_SERVICIOS_PERSONA1">
+            <End Role="PERSONA" EntitySet="PERSONA" />
+            <End Role="SERVICIOS" EntitySet="SERVICIOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SERVICIOS_PERSONA2" Association="Self.FK_SERVICIOS_PERSONA2">
+            <End Role="PERSONA" EntitySet="PERSONA" />
+            <End Role="SERVICIOS" EntitySet="SERVICIOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PLANEACION_SERVICIOS" Association="Self.FK_PLANEACION_SERVICIOS">
+            <End Role="SERVICIOS" EntitySet="SERVICIOS" />
+            <End Role="PLANEACION" EntitySet="PLANEACION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RECIBO_SERVICIOS" Association="Self.FK_RECIBO_SERVICIOS">
+            <End Role="SERVICIOS" EntitySet="SERVICIOS" />
+            <End Role="RECIBO" EntitySet="RECIBO" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="GasNaturalModelStoreContainer" CdmEntityContainer="GasNaturalEntities">
+          <EntitySetMapping Name="CAUSAS">
+            <EntityTypeMapping TypeName="GasNaturalModel.CAUSAS">
+              <MappingFragment StoreEntitySet="CAUSAS">
+                <ScalarProperty Name="IdCausas" ColumnName="IdCausas" />
+                <ScalarProperty Name="Causa" ColumnName="Causa" />
+                <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+                <ScalarProperty Name="IdPersonaCreacion" ColumnName="IdPersonaCreacion" />
+                <ScalarProperty Name="Observaciones" ColumnName="Observaciones" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="COMPONENTES">
+            <EntityTypeMapping TypeName="GasNaturalModel.COMPONENTES">
+              <MappingFragment StoreEntitySet="COMPONENTES">
+                <ScalarProperty Name="IdComponente" ColumnName="IdComponente" />
+                <ScalarProperty Name="FechaComponente" ColumnName="FechaComponente" />
+                <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+                <ScalarProperty Name="IdPersonaCreaciones" ColumnName="IdPersonaCreaciones" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="COMPROBANTE">
+            <EntityTypeMapping TypeName="GasNaturalModel.COMPROBANTE">
+              <MappingFragment StoreEntitySet="COMPROBANTE">
+                <ScalarProperty Name="IdComprobante" ColumnName="IdComprobante" />
+                <ScalarProperty Name="Monto" ColumnName="Monto" />
+                <ScalarProperty Name="Iva" ColumnName="Iva" />
+                <ScalarProperty Name="FirmaTecnico" ColumnName="FirmaTecnico" />
+                <ScalarProperty Name="FirmaUsuario" ColumnName="FirmaUsuario" />
+                <ScalarProperty Name="IdServicio" ColumnName="IdServicio" />
+                <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+                <ScalarProperty Name="FechaImpresion" ColumnName="FechaImpresion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ETAPAS">
+            <EntityTypeMapping TypeName="GasNaturalModel.ETAPAS">
+              <MappingFragment StoreEntitySet="ETAPAS">
+                <ScalarProperty Name="IdEtapa" ColumnName="IdEtapa" />
+                <ScalarProperty Name="Etapa" ColumnName="Etapa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FALLOS">
+            <EntityTypeMapping TypeName="GasNaturalModel.FALLOS">
+              <MappingFragment StoreEntitySet="FALLOS">
+                <ScalarProperty Name="IdFallo" ColumnName="IdFallo" />
+                <ScalarProperty Name="Fallo" ColumnName="Fallo" />
+                <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+                <ScalarProperty Name="IdPersonaCreaciones" ColumnName="IdPersonaCreaciones" />
+                <ScalarProperty Name="Observaciones" ColumnName="Observaciones" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MONITOREO">
+            <EntityTypeMapping TypeName="GasNaturalModel.MONITOREO">
+              <MappingFragment StoreEntitySet="MONITOREO">
+                <ScalarProperty Name="IdMonitoreo" ColumnName="IdMonitoreo" />
+                <ScalarProperty Name="IdServicio" ColumnName="IdServicio" />
+                <ScalarProperty Name="FechaInicio" ColumnName="FechaInicio" />
+                <ScalarProperty Name="FechaFin" ColumnName="FechaFin" />
+                <ScalarProperty Name="MetrosRecorridos" ColumnName="MetrosRecorridos" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PERSONA">
+            <EntityTypeMapping TypeName="GasNaturalModel.PERSONA">
+              <MappingFragment StoreEntitySet="PERSONA">
+                <ScalarProperty Name="IdPersona" ColumnName="IdPersona" />
+                <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+                <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+                <ScalarProperty Name="FechaNacimiento" ColumnName="FechaNacimiento" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
+                <ScalarProperty Name="Login" ColumnName="Login" />
+                <ScalarProperty Name="Contraseña" ColumnName="Contraseña" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PLANEACION">
+            <EntityTypeMapping TypeName="GasNaturalModel.PLANEACION">
+              <MappingFragment StoreEntitySet="PLANEACION">
+                <ScalarProperty Name="IdPlaneacion" ColumnName="IdPlaneacion" />
+                <ScalarProperty Name="IdServicio" ColumnName="IdServicio" />
+                <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+                <ScalarProperty Name="IdPersonaCreacion" ColumnName="IdPersonaCreacion" />
+                <ScalarProperty Name="IdPersonaModificacion" ColumnName="IdPersonaModificacion" />
+                <ScalarProperty Name="IdEtapa" ColumnName="IdEtapa" />
+                <ScalarProperty Name="FechaAsignacion" ColumnName="FechaAsignacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RECIBO">
+            <EntityTypeMapping TypeName="GasNaturalModel.RECIBO">
+              <MappingFragment StoreEntitySet="RECIBO">
+                <ScalarProperty Name="IdRecibo" ColumnName="IdRecibo" />
+                <ScalarProperty Name="Monto" ColumnName="Monto" />
+                <ScalarProperty Name="Iva" ColumnName="Iva" />
+                <ScalarProperty Name="FirmaTecnico" ColumnName="FirmaTecnico" />
+                <ScalarProperty Name="FirmaUsuario" ColumnName="FirmaUsuario" />
+                <ScalarProperty Name="IdServicio" ColumnName="IdServicio" />
+                <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+                <ScalarProperty Name="FechaImpresion" ColumnName="FechaImpresion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RECORRIDO">
+            <EntityTypeMapping TypeName="GasNaturalModel.RECORRIDO">
+              <MappingFragment StoreEntitySet="RECORRIDO">
+                <ScalarProperty Name="IdRecorrido" ColumnName="IdRecorrido" />
+                <ScalarProperty Name="IdMonitoreo" ColumnName="IdMonitoreo" />
+                <ScalarProperty Name="FechaRecorrido" ColumnName="FechaRecorrido" />
+                <ScalarProperty Name="Longitud" ColumnName="Longitud" />
+                <ScalarProperty Name="Latitud" ColumnName="Latitud" />
+                <ScalarProperty Name="Velocidad" ColumnName="Velocidad" />
+                <ScalarProperty Name="DistanciaRecorrida" ColumnName="DistanciaRecorrida" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SERVICIOS">
+            <EntityTypeMapping TypeName="GasNaturalModel.SERVICIOS">
+              <MappingFragment StoreEntitySet="SERVICIOS">
+                <ScalarProperty Name="IdServicio" ColumnName="IdServicio" />
+                <ScalarProperty Name="IdPersonaTecnico" ColumnName="IdPersonaTecnico" />
+                <ScalarProperty Name="IdPersonaCreacion" ColumnName="IdPersonaCreacion" />
+                <ScalarProperty Name="IdPersonaCliente" ColumnName="IdPersonaCliente" />
+                <ScalarProperty Name="IdEtapa" ColumnName="IdEtapa" />
+                <ScalarProperty Name="Observacion" ColumnName="Observacion" />
+                <ScalarProperty Name="IdComponente" ColumnName="IdComponente" />
+                <ScalarProperty Name="IdFallo" ColumnName="IdFallo" />
+                <ScalarProperty Name="IdCausa" ColumnName="IdCausa" />
+                <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+                <ScalarProperty Name="FechaModificacion" ColumnName="FechaModificacion" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="FechaAsignacion" ColumnName="FechaAsignacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="GasNaturalModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
