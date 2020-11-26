@@ -1,9 +1,0 @@
-{
-  "name": "proyecto-gas-natural.business",
-  "version": "0.0.0",
-  "description": "ProyectoGasNatural.Business",
-  "main": "server.js",
-  "author": {
-    "name": ""
-  }
-}
